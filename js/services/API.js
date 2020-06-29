@@ -45,5 +45,21 @@ class API {
         // create a new object
         // clear our form
       }
-      // make sure all the functions still work
+
+      static favoriteAnime(){
+        const fav = parseInt(event.target.parentElement.querySelector("p").innerText.split(" ")[0])
+        let updateFavs = fav + 1 
+        event.target.parentElement.querySelector("p").innerText = `${updateFavs} favorites`
+        const id = parseInt(event.target.parentElement.id)
+        fetch(`http://localhost:3000/animes/${id}`,{
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            favorite: updateFavs 
+          })
+      })
+    }
+
 }
