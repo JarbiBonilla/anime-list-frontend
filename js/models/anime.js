@@ -31,10 +31,11 @@ class Anime {
         return `
           <a href="/anime/${this.id}"><h2 class="header">${this.title}</h2></a>
           <img src="${this.image}" width="100" />
-          <p>Genre: ${this.genre}</p>
-          <p>Rating: ${this.rating}</p>
-          <p>Summary: ${this.summary} </p>
-          <p><button onclick=API.favoriteAnime()> Favorite </button> ${this.favorite}</p>
+          <h5>Genre: ${this.genre}</h5>
+          <h5>Rating: ${this.rating}</h5>
+          <h5>Summary: ${this.summary}</h5>
+          <p> ${this.favorite} favorites </p>
+          <button onclick=API.favoriteAnime()> Favorite </button> 
         `
       }
 }
