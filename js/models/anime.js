@@ -7,6 +7,7 @@ class Anime {
         this.rating = rating
         this.favorite = favorite
         this.image = image 
+        this.renderAnime()
     }
 
     renderAnime(){
@@ -22,6 +23,18 @@ class Anime {
       }
   
     showAnime(e) {
-        
+
     }
+
+
+    animeHTML(){
+        return `
+          <a href="/anime/${this.id}"><h2 class="header">${this.title}</h2></a>
+          <img src="${this.image}" width="100" />
+          <p>Genre: ${this.genre}</p>
+          <p>Rating: ${this.rating}</p>
+          <p>Summary: ${this.summary} </p>
+          <p>Favorite: ${this.favorite} </p>
+        `
+      }
 }
