@@ -4,8 +4,8 @@ class API {
           .then(resp => resp.json())
           .then(animes => {
             animes.forEach(anime => {
-                const { id, title, genre, summary, rating, favorite, image } = anime 
-                new Anime(id, title, genre, summary, rating, favorite, image)
+                const { id, title, genre, summary, rating, favorite, image, characters } = anime 
+                new Anime(id, title, genre, summary, rating, favorite, image, characters)
             })
         }) 
       }
@@ -20,11 +20,11 @@ class API {
             'summary': e.target.summary.value,
             'rating': e.target.rating.value,
             'image': e.target.image.value,
-            'characters_attributes': {
+            'characters_attributes': [{
               'name': e.target.name.value,
               'powers': e.target.powers.value,
               'description': e.target.description.value,
-            } 
+            }]
         };
         // write our fetch and send it to our back end
         fetch('http://localhost:3000/animes', {
@@ -37,8 +37,8 @@ class API {
         // grab our fetch response
         .then(resp => resp.json())
         .then(anime => {
-            const { id, title, genre, summary, rating, favorite, image } = anime
-            new Anime(id, title, genre, summary, rating, favorite, image)
+            const { id, title, genre, summary, rating, favorite, image, characters} = anime
+            new Anime(id, title, genre, summary, rating, favorite, image, characters)
             document.getElementById('anime-form').reset()
         })
         // create a new object
@@ -61,4 +61,5 @@ class API {
       })
     }
 
+    // delte fuction for anime; needed for last fetch
 }
