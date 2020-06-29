@@ -34,7 +34,7 @@ class Anime {
           <p>Genre: ${this.genre}</p>
           <p>Rating: ${this.rating}</p>
           <p>Summary: ${this.summary} </p>
-          <p>Favorite: ${this.favorite} </p>
+          <p><button onclick=API.favoriteAnime()> Favorite </button> ${this.favorite}</p>
         `
       }
 }
