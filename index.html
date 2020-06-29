@@ -8,6 +8,34 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <h1>Anime List</h1>
+    <div id="container">
+      <div id="form">
+        <h3>New Anime</h3>
+        <form id="anime-form">
+          <input type="text" name="title" placeholder="title"/>
+          <br/>
+          <input type="text" name="genre" placeholder="summary"/>
+          <br/>
+          <input type="text" name="rating" placeholder="rating"/>
+          <br/>
+          <input type="text" name="favorite" placeholder="favorite"/>
+          <br/>
+          <input type="text" name="image" placeholder="image url"/>
+          <br/>
+          <h3>Add your favorite characters here!</h3>
+          <input type="text" name="name" placeholder="name"/>
+          <br/>
+          <input type="text" name="powers" placeholder="powers"/>
+          <br/>
+          <input type="text" name="description" placeholder="description"/>
+          <br/>
+          <input type="submit" value="Submit"/>
+        </form>
+      </div>
+      <div id="anime-container">
+      </div>
+    </div>
   <script src="js/services/API.js"></script>
   <script src="js/models/anime.js"></script>
   <script src="js/index.js"></script>
