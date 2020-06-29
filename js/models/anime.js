@@ -1,5 +1,5 @@
 class Anime {
-    constructor(id, title, genre, summary, rating, favorite, image){
+    constructor(id, title, genre, summary, rating, favorite, image, characters){
         this.id = id
         this.title = title
         this.genre = genre
@@ -7,6 +7,7 @@ class Anime {
         this.rating = rating
         this.favorite = favorite
         this.image = image 
+        this.characters = characters 
         this.renderAnime()
     }
 
@@ -35,7 +36,14 @@ class Anime {
           <h5>Rating: ${this.rating}</h5>
           <h5>Summary: ${this.summary}</h5>
           <p> ${this.favorite} favorites </p>
-          <button onclick=API.favoriteAnime()> Favorite </button> 
-        `
+          <button onclick=API.favoriteAnime()> Favorite </button>
+          <h5>Characters:</h5>
+          ${this.characters.map(function(character){
+            return (`${character.name},
+            ${character.powers},
+            ${character.description}`)
+            })}`
+
       }
+
 }
