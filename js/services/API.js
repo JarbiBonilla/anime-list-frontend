@@ -17,9 +17,8 @@ class API {
         let data = {
             'title': e.target.title.value,
             'genre': e.target.genre.value,
-            'summary': e.target.summary.checked,
+            'summary': e.target.summary.value,
             'rating': e.target.rating.value,
-            'favorite': e.target.favorite.value,
             'image': e.target.image.value,
             'characters_attributes': {
               'name': e.target.name.value,
