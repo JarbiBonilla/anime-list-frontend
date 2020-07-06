@@ -61,5 +61,6 @@ class API {
       })
     }
 
+
     // delte fuction for anime; needed for last fetch
 }
