@@ -19,24 +19,35 @@ class Anime {
         animeCard.innerHTML += this.animeHTML()
         animeContainer.appendChild(animeCard)
         animeCard.addEventListener('click', e => {
-          if (e.target.className.includes('header')) this.showAnime(e)
+          if (e.target.className.includes('delete')) this.deleteAnime(e)
         })
       }
   
-    showAnime(e) {
+    deleteAnime(event) {
+        const animeId = parseInt(event.target.parentElement.id)
+        fetch(`http://localhost:3000/animes/${animeId}`, {
+          method: 'DELETE',
+          headers: {
+          'Content-Type': 'application/json'
+          }
+      })
+      .then (()=> {
+        document.getElementById('anime-container').removeChild(document.getElementById(animeId))
+      }) 
 
     }
 
 
     animeHTML(){
         return `
-          <a href="/anime/${this.id}"><h2 class="header">${this.title}</h2></a>
+          <h2 class="header">${this.title}</h2>
           <img src="${this.image}" width="100" />
           <h5>Genre: ${this.genre}</h5>
           <h5>Rating: ${this.rating}</h5>
           <h5>Summary: ${this.summary}</h5>
           <p> ${this.favorite} favorites </p>
           <button onclick=API.favoriteAnime()> Favorite </button>
+          <button class= 'delete'> Delete? </button>
           <h5>Characters:</h5>
           ${this.characters.map(function(character){
             return (`${character.name},
