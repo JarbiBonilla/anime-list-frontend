@@ -20,6 +20,7 @@ class Anime {
         animeContainer.appendChild(animeCard)
         animeCard.addEventListener('click', e => {
           if (e.target.className.includes('delete')) this.deleteAnime(e)
+          if (e.target.className.includes('rating')) this.removeRating(e)
         })
       }
   
@@ -37,17 +38,22 @@ class Anime {
 
     }
 
+    removeRating(event) {
+      event.target.parentElement.removeChild(event.target.parentElement.querySelector('#rating-header'))
+    }
+
 
     animeHTML(){
         return `
           <h2 class="header">${this.title}</h2>
           <img src="${this.image}" width="100" />
           <h5>Genre: ${this.genre}</h5>
-          <h5>Rating: ${this.rating}</h5>
+          <h5 id= 'rating-header'> Rating: ${this.rating}</h5>
           <h5>Summary: ${this.summary}</h5>
           <p> ${this.favorite} favorites </p>
           <button onclick=API.favoriteAnime()> Favorite </button>
           <button class= 'delete'> Delete? </button>
+          <button class= 'rating'> Remove Rating? </button>
           <h5>Characters:</h5>
           ${this.characters.map(function(character){
             return (`${character.name},
