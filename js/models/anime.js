@@ -8,7 +8,7 @@ class Anime {
         this.favorite = favorite
         this.image = image 
         this.characters = characters 
-        this.renderAnime()
+        this.renderAnime() // as new instance is created, so is the card
     }
 
     renderAnime(){

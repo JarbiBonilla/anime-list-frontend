@@ -46,7 +46,7 @@ class API {
       }
 
       static favoriteAnime(){
-        const fav = parseInt(event.target.parentElement.querySelector("p").innerText.split(" ")[0])
+        const fav = parseInt(event.target.parentElement.querySelector("p").innerText.split(" ")[0]) // current number of favs
         let updateFavs = fav + 1 
         event.target.parentElement.querySelector("p").innerText = `${updateFavs} favorites`
         const id = parseInt(event.target.parentElement.id)
